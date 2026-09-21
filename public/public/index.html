@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Arena</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="loginScreen" class="screen active">
+        <div class="panel auth-panel">
+          <h1>Monster Arena</h1>
+          <input id="username" type="text" placeholder="اسم المستخدم" />
+          <input id="password" type="password" placeholder="كلمة المرور" />
+          <button id="registerBtn">تسجيل</button>
+          <button id="loginBtn">دخول</button>
+          <p id="authStatus"></p>
+        </div>
+      </div>
+
+      <div id="gameScreen" class="screen">
+        <header class="topbar">
+          <div>اسم المستخدم: <span id="playerName"></span></div>
+          <div>العملات: <span id="coins">0</span></div>
+          <div>السلاح: <span id="weaponName">Glock</span></div>
+          <div>الضرر: <span id="damage">9</span></div>
+        </header>
+
+        <div class="main-grid">
+          <aside class="panel lobby-panel">
+            <h2>اللوبي</h2>
+            <button id="playBtn">ابدأ اللعب</button>
+            <button id="shopBtn">المتجر</button>
+            <button id="logoutBtn">خروج</button>
+          </aside>
+
+          <section class="panel">
+            <h2>المتجر</h2>
+            <div class="shop-item">
+              <span>Glock</span>
+              <span>مجاني</span>
+              <button data-weapon="glock" data-price="0">اختيار</button>
+            </div>
+            <div class="shop-item">
+              <span>Knife</span>
+              <span>300</span>
+              <button data-weapon="knife" data-price="300">شراء</button>
+            </div>
+            <div class="shop-item">
+              <span>MP5</span>
+              <span>250</span>
+              <button data-weapon="mp5" data-price="250">شراء</button>
+            </div>
+            <div class="shop-item">
+              <span>AK47</span>
+              <span>650</span>
+              <button data-weapon="ak47" data-price="650">شراء</button>
+            </div>
+            <div class="shop-item">
+              <span>RPG</span>
+              <span>12500</span>
+              <button data-weapon="rpg" data-price="12500">شراء</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>المستويات</h2>
+            <button class="difficulty" data-difficulty="weak">ضعيف</button>
+            <button class="difficulty" data-difficulty="medium">متوسط</button>
+            <button class="difficulty" data-difficulty="hard">صعب</button>
+            <button class="difficulty" data-difficulty="global">عالمي</button>
+            <div id="battleResult" class="battle-result"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
